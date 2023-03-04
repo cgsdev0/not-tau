@@ -23,6 +23,15 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
       # Runs a single command using the runners shell
       - uses: cgsdev0/tau-types-action@HEAD
+        with:
+          output-file: npm-types/index.d.ts
+      - run: npm publish
+        working-directory: npm-types
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
