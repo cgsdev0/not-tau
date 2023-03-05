@@ -1,6 +1,6 @@
 {
   "name": "tau-types",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Typescript definitions for TAU",
   "main": "",
   "repository": {
